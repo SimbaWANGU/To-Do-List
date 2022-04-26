@@ -8,14 +8,16 @@ function component() {
     {
       description: 'Clean room',
       completed: false,
-      index: 1,
+      index: 2,
     },
     {
       description: 'Cook lunch',
       completed: false,
-      index: 2,
+      index: 1,
     },
   ];
+  tasks.sort((a, b) => a.index - b.index);
+
   const toDo = document.getElementById('toDo');
   toDo.classList.add('container');
 
