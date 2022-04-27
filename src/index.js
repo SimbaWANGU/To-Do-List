@@ -2,22 +2,11 @@ import './style.css';
 import Icon from './menu.png';
 import Reload from './reload.png';
 import Enter from './to-left.png';
+import taskArray from './declarations.js';
+import addTask from './addTask.js';
+import deleteTask from './deleteTask.js';
 
 function component() {
-  const tasks = [
-    {
-      description: 'Clean room',
-      completed: false,
-      index: 2,
-    },
-    {
-      description: 'Cook lunch',
-      completed: false,
-      index: 1,
-    },
-  ];
-  tasks.sort((a, b) => a.index - b.index);
-
   const toDo = document.getElementById('toDo');
   toDo.classList.add('container');
 
@@ -39,9 +28,9 @@ function component() {
   const addtoList = document.createElement('div');
   addtoList.classList.add('addtoList');
 
-  const addToList = document.createElement('p');
+  const addToList = document.createElement('input');
   addToList.classList.add('addToList');
-  addToList.innerText = 'Add to your List...';
+  addToList.setAttribute('placeholder', 'Add to your List...');
   addtoList.appendChild(addToList);
 
   const myImage3 = new Image();
@@ -51,9 +40,28 @@ function component() {
 
   toDo.appendChild(addtoList);
 
+  addToList.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      addTask(addToList);
+    }
+  });
+
+  myImage3.addEventListener('click', () => {
+    if (addToList.value !== '') {
+      addTask(addToList);
+    }
+  });
+
+  taskArray.sort((a, b) => a.index - b.index);
+
   const unorderedList = document.createElement('ul');
   unorderedList.classList.add('list');
-  tasks.forEach((task) => {
+
+  let i = 1;
+  let j = 1;
+  taskArray.forEach((task) => {
+    // eslint-disable-next-line no-plusplus
+    task.index = i++;
     const listItem = document.createElement('li');
     listItem.classList.add('list_item');
 
@@ -63,6 +71,16 @@ function component() {
     const checkBox = document.createElement('input');
     checkBox.setAttribute('type', 'checkbox');
     checkBox.classList.add('checkbox');
+
+    checkBox.addEventListener('click', () => {
+      const newtaskArray = deleteTask(checkBox);
+      newtaskArray.forEach((task) => {
+        // eslint-disable-next-line no-plusplus
+        task.index = j++;
+      });
+      localStorage.setItem('task', JSON.stringify(newtaskArray));
+      window.location.reload(true);
+    });
 
     const taskText = document.createElement('p');
     taskText.classList.add('task');

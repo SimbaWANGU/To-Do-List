@@ -42,6 +42,9 @@ body {
   margin-left: 5%;
   opacity: 0.6;
   font-style: italic;
+  border: none;
+  width: 70%;
+  outline: none;
 }
 
 .enter {
