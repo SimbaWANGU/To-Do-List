@@ -1,4 +1,4 @@
-import taskArray from './declarations.js';
+import { taskArray } from './declarations.js';
 
 export default class Task {
   constructor(inputFieldValue) {
