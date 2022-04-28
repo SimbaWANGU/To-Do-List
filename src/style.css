@@ -136,9 +136,35 @@ body {
   border: 1px solid gainsboro;
 }
 
-.completedText {
+.completedButton {
+  background: transparent;
+  position: relative;
+  border: none;
   margin: auto;
-  opacity: 0.7;
+  display: block;
+  outline: none;
+  transition: 0.3s;
+  padding: 4px 10px 4px 10px;
+  opacity: 0.8;
+}
+
+.completedButton::before {
+  content: '';
+  border-bottom: 1px solid black;
+  opacity: 0.8;
+  padding: 0 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  transition: 0.3s;
+}
+
+.completedButton:hover::before {
+  width: 85%;
+  padding: 0;
 }
 
 .hide {

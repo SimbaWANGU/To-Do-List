@@ -6,10 +6,11 @@ import Delete from './delete.png';
 import { taskArray } from './declarations.js';
 import {
   addTask,
-  deleteTask,
+  deleteTasks,
   editTask,
   deleteEditTask,
 } from './taskFunctionality.js';
+import statusUpdate from './statusUpdates.js';
 
 function component() {
   const toDo = document.getElementById('toDo');
@@ -77,8 +78,8 @@ function component() {
     checkBox.setAttribute('type', 'checkbox');
     checkBox.classList.add('checkbox');
 
-    checkBox.addEventListener('click', () => {
-      checkBox.nextElementSibling.classList.toggle('checkedTask');
+    checkBox.addEventListener('change', () => {
+      statusUpdate(checkBox, task);
     });
 
     const taskText = document.createElement('p');
@@ -136,13 +137,13 @@ function component() {
   const completed = document.createElement('div');
   completed.classList.add('completed');
 
-  const completedText = document.createElement('p');
-  completedText.classList.add('completedText');
-  completedText.innerText = 'Completed';
-  completed.appendChild(completedText);
+  const completedButton = document.createElement('button');
+  completedButton.classList.add('completedButton');
+  completedButton.innerText = 'Clear all Completed';
+  completed.appendChild(completedButton);
 
-  completed.addEventListener('click', () => {
-    deleteTask(j);
+  completedButton.addEventListener('click', () => {
+    deleteTasks(j);
   });
 
   toDo.appendChild(completed);
