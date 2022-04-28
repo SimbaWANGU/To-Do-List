@@ -11,7 +11,7 @@ const addTask = (addToList) => {
   }
 };
 
-const deleteTask = (j) => {
+const deleteTasks = (j) => {
   document.querySelectorAll('.checkbox').forEach((check) => {
     if (check.checked === false) {
       arr.push(check.nextElementSibling.innerText);
@@ -45,5 +45,5 @@ const deleteEditTask = (myImage4, j) => {
 };
 
 export {
-  addTask, deleteTask, editTask, deleteEditTask,
+  addTask, deleteTasks, editTask, deleteEditTask,
 };
