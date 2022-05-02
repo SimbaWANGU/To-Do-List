@@ -7,6 +7,10 @@
 - Js
 - Webpack
 
+## Live Demo (if available)
+
+The live demo for the project can be found in the following [Tweet](https://twitter.com/simb_erella/status/1521054242391445504)
+
 ### Prerequisites
 - Create Github repository
 - Have VSCode or choice text editor installed
@@ -24,6 +28,8 @@
 - Run `npm start` to start project in server 
 - HTML, CSS Linter configuration - https://github.com/microverseinc/linters-config/tree/master/html-css
 
+### Deployment
+- The live link for the project can be found [here](https://simbawangu.github.io/To-Do-List/index.html)
 
 ## Author
 🧑  **Simba Eugene**
