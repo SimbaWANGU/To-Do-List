@@ -7,8 +7,8 @@ const addTask = (addToList) => {
     taskArray.push(task);
     localStorage.setItem('task', JSON.stringify(taskArray));
     addToList.value = '';
-    window.location.reload(true);
   }
+  return taskArray;
 };
 
 const deleteTasks = (j) => {
@@ -23,7 +23,7 @@ const deleteTasks = (j) => {
     task.index = j++;
   });
   localStorage.setItem('task', JSON.stringify(newtaskArray));
-  window.location.reload(true);
+  return newtaskArray;
 };
 
 const editTask = (editText, task) => {
@@ -41,7 +41,7 @@ const deleteEditTask = (myImage4, j) => {
     task.index = j++;
   });
   localStorage.setItem('task', JSON.stringify(newtaskArray));
-  window.location.reload(true);
+  return newtaskArray;
 };
 
 export {
