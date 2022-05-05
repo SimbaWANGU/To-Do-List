@@ -49,12 +49,14 @@ function component() {
   addToList.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
       addTask(addToList);
+      window.location.reload(true);
     }
   });
 
   myImage3.addEventListener('click', () => {
     if (addToList.value !== '') {
       addTask(addToList);
+      window.location.reload(true);
     }
   });
 
@@ -115,6 +117,7 @@ function component() {
 
       myImage4.addEventListener('click', () => {
         deleteEditTask(myImage4, j);
+        window.location.reload(true);
       });
 
       div.appendChild(editText);
@@ -144,6 +147,7 @@ function component() {
 
   completedButton.addEventListener('click', () => {
     deleteTasks(j);
+    window.location.reload(true);
   });
 
   toDo.appendChild(completed);
