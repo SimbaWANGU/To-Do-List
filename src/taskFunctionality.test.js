@@ -87,5 +87,5 @@ describe('Adding and Removing one task and multiple tasks', () => {
       div.appendChild(checkBox);
     });
     expect(deleteTasks(1).length).toBe(taskArray.length = 0);
-  })
+  });
 });
